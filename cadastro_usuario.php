@@ -4,14 +4,13 @@ require_once 'banco.php';
 require_once 'class.php';
  
 $db = new banco;
-if (!isset($_SESSION['username'])) {
+if (isset($_SESSION['username'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Blank Page</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -49,12 +48,6 @@ if (!isset($_SESSION['username'])) {
     <section class="content">
 
       <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title" 
-            </button>
-          </div>
-        </div>
         <div class="card-body">
  <div class="card">
         <div class="card-header">
@@ -78,15 +71,15 @@ if (!isset($_SESSION['username'])) {
               <div class="card-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Usuario</label>
-                  <input type="username" class="form-control" id="exampleInputEmail1" placeholder="">
+                  <input type="username" class="form-control" name="login" id="login" placeholder="">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Senha</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+                  <input type="password" class="form-control" name="senha" id="senha" placeholder="">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Confirmar Senha</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+                  <input type="password" class="form-control" name="senha_confirma" id="senha_confirma" placeholder="">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile">Entrada de Arquivo</label>
