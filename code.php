@@ -3,9 +3,9 @@ session_start();
 include('banco.php');
 include('class.php');
 $db = new banco;
-/*
-echo "<pre>";
-print_r($_POST); */
+
+// echo "<pre>";
+// print_r($_POST); 
  
 if (isset($_POST['salva_usuario'])) {
     $inputData = [

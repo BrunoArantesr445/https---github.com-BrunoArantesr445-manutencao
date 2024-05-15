@@ -4,7 +4,7 @@ require_once 'banco.php';
 require_once 'class.php';
  
 $db = new banco;
-if (!isset($_SESSION['username'])) {
+if (isset($_SESSION['username'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +24,6 @@ if (!isset($_SESSION['username'])) {
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar -->
-
     <!-- Main content -->
     <section class="content">
  <!-- Content Wrapper. Contains page content -->
@@ -51,9 +50,6 @@ if (!isset($_SESSION['username'])) {
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title" 
-            </button>
-          </div>
         </div>
         <div class="card-body">
  <div class="card">
@@ -78,15 +74,15 @@ if (!isset($_SESSION['username'])) {
               <div class="card-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Usuario</label>
-                  <input type="username" class="form-control" id="exampleInputEmail1" placeholder="">
+                  <input type="text" name="login" id="login" class="form-control" id="exampleInputEmail1" placeholder="">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Senha</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+                  <input type="text" name="senha" id="senha" class="form-control" id="exampleInputPassword1" placeholder="">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Confirmar Senha</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+                  <input type="text" name="senha_confirma" id="senha_confirma" class="form-control" id="exampleInputPassword1" placeholder="">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile">Entrada de Arquivo</label>

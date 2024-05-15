@@ -1,12 +1,3 @@
-<?php
-session_start();
-require_once 'banco.php';
-require_once 'class.php';
-$db = new banco;
-//$aluno = new produto;
-//if (isset($_SESSION['username'])) {
-?>
-
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -90,7 +81,7 @@ $db = new banco;
         </div>
       </div>
 <?php
-//require "menu.php";
+require "menu.php";
 ?>
 
       <!-- /.sidebar-menu -->
@@ -131,16 +122,14 @@ $db = new banco;
             <h2 class="text-center display-4">Busca Usuário</h2>
             <div class="row">
                 <div class="col-md-8 offset-md-2">
-                <form action="busca.php" method="POST">
+                    <form action="simple-results.html">
                         <div class="input-group">
-                          
-                            <input type="search" class="form-control form-control-lg" name="buscar" placeholder="Type your keywords here">
+                            <input type="search" class="form-control form-control-lg" placeholder="Type your keywords here">
                             <div class="input-group-append">
                                 <button type="submit" class="btn btn-lg btn-default">
                                     <i class="fa fa-search"></i>
                                 </button>
                             </div>
-                       </form>
                         </div>
                     </form>
                 </div>
@@ -187,37 +176,17 @@ $db = new banco;
                     </tr>
                 </thead>
                 <tbody>
-
-                  <?php
-                      // for ($i = 1; $i <= 10; $i++) {
-
-                  ?>
-
-
-<?php
-            // if (isset($_GET['busca'])) {
-            //     $igor = $_GET['busca'];
-                $produto = new produto;
-                //  $result = $produto->listar_produtos();
-                $AMANDA= $_POST['buscar'];
-                $result = $produto->buscar_um_produto($AMANDA);
-                while ($linha = $result->fetch_array()) {
-                  //print_r($linha);
-                  
-                  ?>
-
-
                     <tr>
                         <td>
-                            <?=$linha['id']?>
+                            #
                         </td>
                         <td>
                             <a>
-                            <?=$linha['nome']?>
+                                AdminLTE v3
                             </a>
                             <br/>
                             <small>
-                                Created   <?=$linha['tempo']?>
+                                Created 01.01.2019
                             </small>
                         </td>
                         <td class="project-state">
@@ -241,18 +210,40 @@ $db = new banco;
                             </a>
                         </td>
                     </tr>
-
-
-                    <?php
-                     }
-
-                  ?>
-
-
-
-
-
-                    
+                    <tr>
+                        <td>
+                            #
+                        </td>
+                        <td>
+                            <a>
+                                AdminLTE v3
+                            </a>
+                            <br/>
+                            <small>
+                                Created 01.01.2019
+                            </small>
+                        </td>
+                        <td class="project-state">
+                            <span class="badge badge-success">Success</span>
+                        </td>
+                        <td class="project-actions text-right">
+                            <a class="btn btn-primary btn-sm" href="#">
+                                <i class="fas fa-folder">
+                                </i>
+                                View
+                            </a>
+                            <a class="btn btn-info btn-sm" href="#">
+                                <i class="fas fa-pencil-alt">
+                                </i>
+                                Edit
+                            </a>
+                            <a class="btn btn-danger btn-sm" href="#">
+                                <i class="fas fa-trash">
+                                </i>
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
               </div>
@@ -311,8 +302,3 @@ $db = new banco;
 <script src="dist/js/demo.js"></script>
 </body>
 </html>
-
-<?php
-            //    }
-            
-            ?>
