@@ -1,3 +1,11 @@
+<?php
+        session_start();
+        require_once 'banco.php';
+        require_once 'class.php';
+
+        $db = new banco;
+
+        ?>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -113,10 +121,6 @@ require "menu.php";
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-        
-		
-		
-		
 		<div class="container-fluid">
             <h2 class="text-center display-4">Busca Produto</h2>
             <div class="row">
@@ -144,14 +148,6 @@ require "menu.php";
           </div>
         </div>
         <div class="card-body">
-         
-		 
-		 
-		 
-		 
-		 
-		 
-		 
 		 <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Produto</h3>
@@ -165,7 +161,12 @@ require "menu.php";
                             #
                         </th>
                         <th style="width: 20%">
-                            Project Name
+                            Nome Produto
+                        </th>
+                        <th style="width: 20%">
+                        Valor
+                        <th style="width: 20%">
+                       Quantidade
                         </th>
                         <th style="width: 8%" class="text-center">
                             Status
@@ -176,21 +177,44 @@ require "menu.php";
                 </thead>
                 <tbody>
                     <tr>
+                    <?php
+                            $produto = new produto;
+                            $result = $produto->listar_produtos();
+                            while ($linha = $result->fetch_array()) {
+                               
+                            ?>
                         <td>
                             #
                         </td>
                         <td>
                             <a>
-                                AdminLTE v3
+                            <?= $linha['nome'] ?> 
                             </a>
                             <br/>
                             <small>
                                 Created 01.01.2019
                             </small>
                         </td>
-                        <td class="project-state">
-                            <span class="badge badge-success">Success</span>
+                        <td>
+                        <a>
+                            <?= $linha['valor'] ?> 
+                            </a>
                         </td>
+                        <td>
+                        <a>
+                        <?= $linha['quantidade'] ?>
+                            </a>       
+                        </td>
+                        </td>
+                                      <td class="project-state">
+                                      <span class="badge badge-success">Success</span>
+                              
+                                  </td>         
+                        <a>
+                            <?= $linha['quantidade'] ?>
+                            </a>                
+                   
+                                  </td>
                         <td class="project-actions text-right">
                             <a class="btn btn-primary btn-sm" href="#">
                                 <i class="fas fa-folder">
@@ -207,42 +231,12 @@ require "menu.php";
                                 </i>
                                 Delete
                             </a>
-                        </td>
+                            </td>
+                    
                     </tr>
-                    <tr>
-                        <td>
-                            #
-                        </td>
-                        <td>
-                            <a>
-                                AdminLTE v3
-                            </a>
-                            <br/>
-                            <small>
-                                Created 01.01.2019
-                            </small>
-                        </td>
-                        <td class="project-state">
-                            <span class="badge badge-success">Success</span>
-                        </td>
-                        <td class="project-actions text-right">
-                            <a class="btn btn-primary btn-sm" href="#">
-                                <i class="fas fa-folder">
-                                </i>
-                                View
-                            </a>
-                            <a class="btn btn-info btn-sm" href="#">
-                                <i class="fas fa-pencil-alt">
-                                </i>
-                                Edit
-                            </a>
-                            <a class="btn btn-danger btn-sm" href="#">
-                                <i class="fas fa-trash">
-                                </i>
-                                Delete
-                            </a>
-                        </td>
-                    </tr>
+                    <?php
+                            }
+                            ?>
                 </tbody>
             </table>
               </div>

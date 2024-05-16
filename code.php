@@ -35,7 +35,7 @@ if (isset($_POST['salva_usuario'])) {
  
 }else{
     $_SESSION['message'] = "Tu ta tentando acessar direto =)";
-    header("location: cadastro_usuario.php");
+    header("location: index.php");
     exit(0);
 }
 ?>

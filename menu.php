@@ -73,10 +73,10 @@
 		  
 		  
 		   <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="busca_usuario.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Widgets
+                Busca Usuario
                 <span class="right badge badge-danger">New</span>
               </p>
             </a>

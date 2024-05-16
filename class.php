@@ -27,24 +27,67 @@ class usuario
             return false;
         }
     }
- 
     public function criar($inputData)
+        {
+            $nome = $inputData['nome'];
+            $login = $inputData['login'];
+            $senha = $inputData['senha'];
+            $tempo = date("Y-m-d H:i:s");
+     
+            echo  $sql = "INSERT INTO usuario (nome,login,senha,data_cad) VALUES
+            ('$nome','$login','$senha','$tempo')";
+            $result = $this->conn->query($sql);
+     
+            if ($result == 1) {
+                //echo "ok";
+                return true;
+            } else {
+                //echo "nok";
+                return false;
+            }
+        }
+        public function listar_usuarios()
+        {
+            $sql = "SELECT * FROM usuario";
+            $resultado = $this->conn->query($sql);
+            return $resultado;
+        }
+
+        
+    public function listar_usuario($id, $acao)
     {
+
+        if ($acao == 1) {
+            $sql = "select * from usuario where id= '$id'";
+            $resultado = $this->conn->query($sql);
+            //$linha = $resultado->fetch_array();
+            //return $linha;
+            return $resultado;
+        }
+    }
+
+    public function editar_usuario($inputData, $acao)
+    {
+        $id = $inputData['id'];
         $nome = $inputData['nome'];
         $login = $inputData['login'];
         $senha = $inputData['senha'];
 
-        
-        echo  $sql = "INSERT INTO usuario (nome,login,senha) VALUES
-        ('$nome','$login','$senha')";
-        $result = $this->conn->query($sql);
- 
-        if ($result == 1) {
-            //echo "ok";
-            return true;
-        } else {
-            //echo "nok";
-            return false;
+
+
+
+        if ($acao == 1) {
+          echo  $sql = "UPDATE `supermercado`.`nome` SET `nome` = '" . $nome . "', `login` = '" . $login . "', `senha` = '" . $senha . "' limit 1";
+            $result = $this->conn->query($sql);
+            $result = $this->conn->query($sql);
+
+            if ($result == 1) {
+                //echo "ok";
+                return true;
+            } else {
+                //echo "nok";
+                return false;
+            }
         }
     }
 }
@@ -64,10 +107,10 @@ class produto
         $valor = $inputData['valor'];
         $imagem = $inputData['imagem'];
         $quantidade = $inputData['quantidade'];
+        $tempo = date("Y-m-d H:i:s");
 
-
-        $sql = "INSERT INTO produto (nome,valor,imagem,quantidade) VALUES 
-        ('" . $produto . "','" . $valor . "','" . $imagem . "','" . $quantidade . "')";
+        $sql = "INSERT INTO produto (nome,valor,imagem,quantidade,tempo) VALUES 
+        ('" . $produto . "','" . $valor . "','" . $imagem . "','" . $quantidade . "','" . $tempo . "')";
         $result = $this->conn->query($sql);
 
         if ($result == 1) {
@@ -78,7 +121,12 @@ class produto
             return false;
         }
     }
-
+    public function listar_produtos()
+    {
+        $sql = "SELECT * FROM produto";
+        $resultado = $this->conn->query($sql);
+        return $resultado;
+    }
 
 }
 

@@ -10,7 +10,6 @@ echo "</pre>";
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Log in (v2)</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -34,7 +33,7 @@ echo "</pre>";
 
         <form action="autentica.php" method="post">
           <div class="input-group mb-3">
-            <input type="username" class="form-control" placeholder="Login" name="login">
+            <input type="username" class="form-control" placeholder="Email" name="login">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>

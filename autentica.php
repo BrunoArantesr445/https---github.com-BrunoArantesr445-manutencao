@@ -29,11 +29,11 @@ if (isset($_POST['login'])) {
           $_SESSION['message'] = "Bem vindo(a): &nbsp;" . $login;
 
           $_SESSION['username'] = $login;
-        //  echo "sucesso";
-          header('location:  busca.php');
+          echo "sucesso";
+          header('location: busca_produto.php');
      } else {
           $_SESSION['message'] = "Login incorreto";
-        //  echo "erro";
+          echo "erro";
           header('location: index.php');
      }
 } else {

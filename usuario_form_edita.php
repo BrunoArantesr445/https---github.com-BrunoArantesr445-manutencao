@@ -5,6 +5,19 @@ require_once 'class.php';
  
 $db = new banco;
 if (isset($_SESSION['username'])) {
+
+
+    $id = $_GET['id'];
+    $acao = 1;
+
+$usuario = new usuario;
+$result = $usuario->editar_usuario($id,$acao);
+//print_r($result);
+    $linha = $result->fetch_array();
+    /* echo "<pre>";
+    print_r($linha);
+    echo "</pre>"; */
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +64,7 @@ if (isset($_SESSION['username'])) {
         <div class="card-body">
  <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Cadastro de usuario</h3>
+          <h3 class="card-title">Ediçao de usuario</h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -68,27 +81,29 @@ if (isset($_SESSION['username'])) {
             <!-- /.card-header -->
             <!-- form start -->
              <form action="cad_usuario.php" method="POST">
+             <input type="hidden" name="id" required  value="<?=$linha['id']?>" />
               <div class="card-body">
-              <div class="form-group">
+                <div class="form-group">
                   <label for="exampleInputEmail1">Nome</label>
-                  <input type="username" class="form-control" name="nome" id="nome" placeholder="">
+                  <input type="username" class="form-control"  value="<?=$linha['nome']?>" placeholder="">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Usuario</label>
-                  <input type="username" class="form-control" name="login" id="login" placeholder="">
+                  <input type="username" class="form-control"  value="<?=$linha['login']?>" placeholder="">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Senha</label>
-                  <input type="password" class="form-control" name="senha" id="senha" placeholder="">
+                  <input type="password" class="form-control"  value="<?=$linha['senha']?>" placeholder="">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Confirmar Senha</label>
-                  <input type="password" class="form-control" name="senha_confirma" id="senha_confirma" placeholder="">
+                  <input type="password" class="form-control"  value="<?=$linha['senha']?>" placeholder="">
+                </div>
                 </div>
               </div> 
               <!-- /.card-body -->
                <div class="card-footer">
-                <button type="submit" class="btn btn-primary" name="salva_usuario">Enviar</button>
+                <button type="submit" class="btn btn-primary" name="atualiza_usuario">Enviar</button>
               </div>
             </form>
           </div> 

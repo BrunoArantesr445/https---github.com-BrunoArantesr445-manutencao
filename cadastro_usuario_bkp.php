@@ -23,7 +23,6 @@ if (isset($_SESSION['username'])) {
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar -->
-
     <!-- Main content -->
     <section class="content">
  <!-- Content Wrapper. Contains page content -->
@@ -69,7 +68,7 @@ if (isset($_SESSION['username'])) {
             <!-- form start -->
              <form action="cad_usuario.php" method="POST">
               <div class="card-body">
-              <div class="form-group">
+                <div class="form-group">
                   <label for="exampleInputEmail1">Nome</label>
                   <input type="username" class="form-control" name="nome" id="nome" placeholder="">
                 </div>
@@ -85,7 +84,13 @@ if (isset($_SESSION['username'])) {
                   <label for="exampleInputPassword1">Confirmar Senha</label>
                   <input type="password" class="form-control" name="senha_confirma" id="senha_confirma" placeholder="">
                 </div>
-              </div> 
+                <div class="form-group">
+                  <label for="exampleInputFile">Entrada de Arquivo</label>
+                  <div class="input-group">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="exampleInputFile">
+                      <label class="custom-file-label" for="exampleInputFile">escolher arquivo</label>
+                    </div>
               <!-- /.card-body -->
                <div class="card-footer">
                 <button type="submit" class="btn btn-primary" name="salva_usuario">Enviar</button>
